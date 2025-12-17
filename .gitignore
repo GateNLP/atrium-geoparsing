@@ -1,0 +1,4 @@
+# we don't ever want to check in a copy of the generated
+# gazetteer file so ignore the list itself and the cache
+locations.lst
+lists_c0_en.gazbin

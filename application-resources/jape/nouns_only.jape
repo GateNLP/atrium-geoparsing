@@ -1,0 +1,12 @@
+Phase: NounsOnly
+Input: Lookup NounChunk
+Options: control = all
+
+Rule: NounsOnly
+(
+	{Lookup notWithin NounChunk}
+):notNoun
+-->
+{
+	inputAS.removeAll(bindings.get("notNoun"));
+}

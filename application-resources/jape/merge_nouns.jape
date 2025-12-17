@@ -1,0 +1,16 @@
+Phase: MergeNounds
+Input: NounChunk Split Token
+Options: control = appelt
+
+Rule: NounsOnly
+(
+	{NounChunk}({NounChunk})+
+):chunks
+-->
+{
+	AnnotationSet chunks = bindings.get("chunks");
+	
+	gate.Utils.addAnn(outputAS,chunks,"NounChunk",Factory.newFeatureMap());
+	
+	inputAS.removeAll(chunks);
+}
