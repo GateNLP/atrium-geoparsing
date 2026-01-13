@@ -90,3 +90,38 @@ external resources (for example, in this case
 `https://pleiades.stoa.org/places/579885`) we would advise against this as it
 causes the gazetteer file to balloon in size, which in turn means that the
 memory requirement for the application increases as well.
+
+
+### Generating the Gazetteer Cache
+
+The first time you load and use the application it will process the gazetteer
+file. This process can be both slow and memory intensive espeically as the size
+of the gazetteer grows. If using the application in a REST service (or simialr)
+then it is likely that the request would time out before the gazetteer had been
+successfully loaded.
+
+To get around this problem you can generate and cache the internal
+representation of the gazetteer, which can be loaded quickly and without
+the same memory requirements.
+
+The script for doing this is `generateGazBin.groovy` which is in the `scripts`
+sub-folder. From the root of the repo run the command:
+
+```
+groovy scripts/generatreGazBin.groovy application-resources/gazetteer/lists.def false en
+```
+
+This should generate a file `lists_c0_en.gazbin` alongside `location.lst`. Note
+that once the cache file exists, the `location.lst` file can in theory be
+deleted which can save space if deploying the application where space is limited.
+
+If the generation of the cache fails with an out of memory error then you can
+increase the available memory by setting the `JAVA_OPTS` environment variable.
+For example, to generate the Geonames gazetteer I had to allow up to 14GB of
+memory which was set by doing
+
+```
+export JAVA_OPTS="-Xmx14G"
+```
+
+prior to running the command to generate the cache file.
