@@ -20,4 +20,4 @@ accept command line options `-input` and `--output` which allow you to do so.
 
 The `generateHazBin.groovy` file is used to generate the cached internal
 representation of a gazetteer for speed and memory efficiancies. More
-details and instructions are in the [top level README](../README.md).
+details and instructions are in the [top level README](../README.md#generating-the-gazetteer-cache).
