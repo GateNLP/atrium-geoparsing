@@ -1,5 +1,5 @@
 Phase: NounsOnly
-Input: Lookup NounChunk
+Input: Lookup NounChunk Token
 Options: control = all
 
 Rule: NounsOnly
@@ -9,4 +9,27 @@ Rule: NounsOnly
 -->
 {
 	inputAS.removeAll(bindings.get("notNoun"));
+}
+
+Rule: RemoveLowerCase
+(
+	{Lookup}
+):lookup
+-->
+{
+	// this checks to see if the entire lookup is lowercase.
+	// if it is then although it's in a noun chunk it's probably
+	// not a proper noun and hence not a location  so let's remove
+	// it from the document. This means we can have common English
+	// words as place names but only tag them when the case suggests
+	// we should; words at beginning of a sentence are going to be
+	// the remaining problem.... that and docs with dodgy grammar
+	// and case. i.e. we should be okay when processing academic
+	// articles etc.
+	Annotation lookup = bindings.get("lookup").iterator().next();
+	
+	String covered = gate.Utils.stringFor(doc,lookup);
+	
+	if (covered.equals(covered.toLowerCase()))
+		inputAS.remove(lookup);
 }
