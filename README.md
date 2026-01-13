@@ -84,7 +84,9 @@ As you can see the data is stored as a TSV (tab separated values) file, with
 the place name in the first column. Each of the other columns then contains a
 key/value pair separated by an `=`. Here we have shown a minimal example with
 just the ID of the entry in Pleiades and the lat/lon coordinates. You can add
-any other columns you wish and they will end up as part of the output. For
-example, it might be useful to add a URI column to provide a fully specified
-link to the resources; in this case that would be
-`https://pleiades.stoa.org/places/579885`.
+any other columns you wish and they will end up as part of the output. Whilst
+it might be tempting to add a URI column to fully specify the link to the
+external resources (for example, in this case
+`https://pleiades.stoa.org/places/579885`) we would advise against this as it
+causes the gazetteer file to balloon in size, which in turn means that the
+memory requirement for the application increases as well.

@@ -84,7 +84,6 @@ def rows(reader, expand_ascii=True):
                 yield [
                     name,
                     f"id={row[0]}",
-#                    f"uri=https://www.geonames.org/{row[0]}",
                     f"lat={row[4]}",
                     f"lon={row[5]}"
                 ]

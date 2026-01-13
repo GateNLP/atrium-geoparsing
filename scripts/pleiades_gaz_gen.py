@@ -73,7 +73,6 @@ def rows(reader):
                 yield [
                     entry,
                     "id="+element["id"],
-                    "uri=https://pleiades.stoa.org/places/"+element["id"],
                     "lat="+str(lat),
                     "lon="+str(lon),
                     "start="+str(name["start"]),
