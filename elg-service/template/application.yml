@@ -1,0 +1,7 @@
+gate:
+  elg:
+    services:
+      - path: "/process"
+        gappLocation: "file:/application/application.xgapp"
+        annotationSelectors: Location
+        concurrency: "${ELG_CONCURRENCY:1}"
