@@ -125,3 +125,10 @@ export JAVA_OPTS="-Xmx14G"
 ```
 
 prior to running the command to generate the cache file.
+
+
+## Using the Application
+
+Once the application has been customized there are two main options for how you can use it. Firstly you can load the `application.xgapp` file into [GATE Developer](https://gate.ac.uk/family/developer.html). This is useful if you want to be able to either further develop the application or to look more closely at the way it works internally. Whilst useful and simple to get started with this approach is not particularly useful for integration into other workflows or for processing a large number of documents. GATE applications can also be used via a [Java API](https://gate.ac.uk/family/embedded.html), but unless you have experiance of using this you probably need an easier alternative.
+
+By far the easiest option is to expose the GATE application as a REST service which can then be called either from the command line (via tools such as cURL) or from within larger workflows implemented in almost any language of your choice. Fortunately the work to do this has already been done as poart of the [European Language Grid (ELG)](https://live.european-language-grid.eu/). Full instructions on how to produce the ELG compatible REST service are provided in the [`elg-service`](./elg-service/README.md) subfolder of this repository. Not only is this an easy way to produce a REST service but it also means that it can be used by anyone else who can already consume ELG compliant text services.
