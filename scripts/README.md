@@ -25,13 +25,13 @@ go manually.
 
 Currently the best way to download the data from
 [English-Place Names](https://sepn.nottingham.ac.uk/view-only/data/placenames/) is
-one country at a time. You can restrict the results by county in the search box
+one county at a time. You can restrict the results by county in the search box
 on the right of the results display. If you then select the first page of results
 (check the box at the left of the header row), you will then be given the option
 to select all matching records. Once these have been selected you can then choose
 to "Export to CSV" from the actions drop down. This can take a moment or two to
 respond; it will timeout on the whole dataset, but will manage Cheshire which is
-I believe the largest country, so will allow the county-by-county approach.
+I believe the largest county, so will allow the county-by-county approach.
 
 Once you have downloaded the county file you can then proces it using the provided
 `epn_gaz_gen.py` script. If you generate a `.lst` file for each county you can
